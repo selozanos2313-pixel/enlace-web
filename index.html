@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183653">
+  <meta name="description" content="ENLACE ofrece soluciones contractuales, administrativas y digitales en Colombia, con apoyo documental, atención humana e inteligencia artificial responsable.">
+  <title>ENLACE | Soluciones jurídicas, contractuales y digitales en Colombia</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #183653; --navy-deep: #102a43; --teal: #168b91; --teal-dark: #0f7077;
+      --ink: #24384b; --muted: #637487; --paper: #fff; --mist: #f2f7f8; --line: #dce6e9;
+      --radius: 22px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth; scroll-padding-top: 88px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; }
+    a { color: inherit; } button, input, textarea, select { font: inherit; }
+    .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 10; padding: .7rem 1rem; background: white; color: var(--navy); border-radius: 8px; }
+    .skip-link:focus { top: 1rem; }
+    .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(220,230,233,.8); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--navy); font-size: 1.04rem; font-weight: 800; letter-spacing: .17em; }
+    .brand-mark { display: grid; place-items: center; width: 37px; height: 37px; background: var(--teal); color: white; border-radius: 12px 12px 12px 4px; letter-spacing: 0; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 23px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: #41566a; text-decoration: none; font-size: .88rem; font-weight: 650; transition: color .2s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--teal-dark); }
+    .nav-links .nav-cta { color: white; padding: 10px 17px; background: var(--navy); border-radius: 999px; }
+    .nav-links .nav-cta:hover, .nav-links .nav-cta:focus-visible { color: white; background: var(--teal-dark); }
+    .menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; background: white; color: var(--navy); padding: 9px 12px; cursor: pointer; }
+    .hero { position: relative; overflow: hidden; background: linear-gradient(118deg, #f1f7f8 0%, #fff 56%, #edf7f6 100%); }
+    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.91) 43%, rgba(255,255,255,.52) 100%), url("assets/enlace-hero.png"); background-position: center, center right; background-size: cover; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; min-height: 585px; padding-block: 82px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--teal-dark); font-weight: 750; letter-spacing: .13em; text-transform: uppercase; font-size: .76rem; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--teal); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 720px; margin: 20px 0; color: var(--navy); font-size: clamp(2.65rem, 5.3vw, 4.55rem); line-height: 1.06; letter-spacing: -.055em; }
+    h1 span { color: var(--teal); }
+    .hero-copy { max-width: 600px; margin-bottom: 29px; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 49px; padding: 12px 21px; border: 1px solid transparent; border-radius: 999px; text-decoration: none; font-weight: 700; transition: transform .2s, background .2s, border-color .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--teal); color: white; box-shadow: 0 9px 22px rgba(22,139,145,.2); }
+    .button-primary:hover { background: var(--teal-dark); }
+    .button-quiet { border-color: var(--line); background: white; color: var(--navy); }
+    .button-quiet:hover { border-color: var(--teal); }
+    .section { padding-block: 96px; } .section-soft { background: var(--mist); }
+    .section-heading { max-width: 760px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 13px 0 14px; color: var(--navy); font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.15; letter-spacing: -.04em; }
+    .section-heading p { margin-bottom: 0; color: var(--muted); font-size: 1.04rem; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .value-card, .service-card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 27px; }
+    .value-card { min-height: 210px; }
+    .icon-box { width: 47px; height: 47px; display: grid; place-items: center; margin-bottom: 20px; border-radius: 15px; background: #e7f4f3; color: var(--teal-dark); font-size: 1.25rem; }
+    .value-card h3, .service-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 1.16rem; }
+    .value-card p, .service-card p { margin-bottom: 0; color: var(--muted); font-size: .95rem; }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .service-card { padding: 29px; box-shadow: 0 12px 36px rgba(16,42,67,.035); scroll-margin-top: 100px; }
+    .service-card ul { display: grid; gap: 9px; margin: 19px 0 0; padding: 0; list-style: none; color: #4d6274; font-size: .93rem; }
+    .service-card li { display: flex; gap: 10px; align-items: flex-start; }
+    .service-card li::before { content: "✓"; flex: 0 0 auto; color: var(--teal); font-weight: 800; }
+    .audience { margin-top: 18px !important; padding-top: 15px; border-top: 1px solid var(--line); color: var(--navy) !important; font-size: .9rem !important; }
+    .service-card .audience strong { color: var(--teal-dark); }
+    .note { margin-top: 22px; padding: 17px 20px; border-left: 3px solid var(--teal); background: #f2f8f8; border-radius: 0 12px 12px 0; color: #536879; font-size: .9rem; }
+    .note strong { color: var(--navy); }
+    .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 19px; counter-reset: step; }
+    .method-card { position: relative; padding-top: 20px; border-top: 1px solid #c9d9dd; counter-increment: step; }
+    .method-card::before { content: "0" counter(step); display: inline-grid; place-items: center; width: 43px; height: 43px; margin-top: -42px; margin-bottom: 18px; border: 1px solid #c9d9dd; border-radius: 50%; background: var(--mist); color: var(--teal-dark); font-weight: 800; font-size: .84rem; }
+    .method-card h3 { margin-bottom: 8px; color: var(--navy); font-size: 1.06rem; } .method-card p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
+    .contact-layout { display: grid; grid-template-columns: 1fr .82fr; align-items: center; gap: 50px; }
+    .contact-copy h2 { margin: 13px 0 14px; color: var(--navy); font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.12; letter-spacing: -.04em; }
+    .contact-copy p { color: var(--muted); }
+    .demo-form { padding: 27px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 15px 38px rgba(16,42,67,.06); }
+    .demo-form h3 { margin-bottom: 7px; color: var(--navy); }
+    .demo-caption { margin-bottom: 18px; color: var(--muted); font-size: .88rem; }
+    .form-field { display: grid; gap: 6px; margin-bottom: 13px; }
+    .form-field label { color: #40566a; font-size: .88rem; font-weight: 650; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #f7f9fa; color: #617181; }
+    .form-field textarea { min-height: 76px; resize: vertical; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 3px solid rgba(22,139,145,.2); border-color: var(--teal); background: white; }
+    .consent-row { display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; color: #536879; font-size: .83rem; line-height: 1.5; }
+    .consent-row input { flex: 0 0 auto; width: 17px; height: 17px; margin-top: 3px; accent-color: var(--teal); }
+    .consent-row a { color: var(--teal-dark); font-weight: 700; }
+    .privacy-disclosure { margin: 16px 0; padding: 15px; border: 1px solid var(--line); border-radius: 12px; background: #f7f9fa; color: #536879; font-size: .82rem; line-height: 1.55; }
+    .privacy-disclosure p { margin: 0 0 10px; }
+    .privacy-disclosure p:last-child { margin-bottom: 0; }
+    .privacy-disclosure a { color: var(--teal-dark); font-weight: 650; overflow-wrap: anywhere; }
+    .demo-submit { width: 100%; border: 0; cursor: pointer; }
+    .demo-submit:disabled { cursor: wait; opacity: .68; transform: none; }
+    .form-message { min-height: 1.5em; margin: 13px 0 0; color: var(--navy); font-size: .88rem; }
+    .form-message[data-state="error"] { color: #a12626; }
+    .form-message[data-state="success"] { color: #0f7077; }
+    .demo-privacy { margin: 13px 0 0; color: #66798a; font-size: .78rem; line-height: 1.5; }
+    footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .87rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-inner p { margin: 0; } .footer-brand { color: var(--navy); font-weight: 800; letter-spacing: .14em; }
+    :focus-visible { outline: 3px solid #43b8b5; outline-offset: 3px; }
+    @media (max-width: 900px) {
+      .nav-links { gap: 13px; } .nav-links a { font-size: .82rem; }
+      .hero-inner { grid-template-columns: 1fr .75fr; gap: 25px; min-height: 520px; }
+      .method-grid { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
+      .contact-layout { gap: 28px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 36px, 520px); }
+      .nav { min-height: 68px; } .menu-toggle { display: inline-flex; align-items: center; gap: 8px; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 14px 20px 20px; background: white; border-bottom: 1px solid var(--line); box-shadow: 0 18px 25px rgba(16,42,67,.08); align-items: stretch; gap: 3px; }
+      .nav-links.is-open { display: flex; flex-direction: column; } .nav-links a { display: block; padding: 11px 9px; font-size: .94rem; } .nav-links .nav-cta { text-align: center; margin-top: 7px; }
+      .hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 16px; padding-block: 66px 40px; }
+      .hero .hero-inner { width: calc(100vw - 36px); max-width: 520px; }
+      .hero-inner > div { width: 100%; max-width: 100%; min-width: 0; }
+      .hero::before { background-image: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.92) 55%, rgba(255,255,255,.76) 100%), url("assets/enlace-hero.png"); background-position: center, 72% center; }
+      .hero h1 { width: 100%; max-width: 100%; overflow-wrap: anywhere; font-size: clamp(2.55rem, 11vw, 3.65rem); } .hero-copy { max-width: 100%; font-size: 1.02rem; }
+      .section { padding-block: 70px; } .section-heading { margin-bottom: 30px; }
+      .value-grid, .service-grid { grid-template-columns: 1fr; } .value-card { min-height: auto; } .service-card { padding: 25px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 20px; } .demo-form { padding: 23px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="ENLACE, inicio"><span class="brand-mark" aria-hidden="true">E</span><span>ENLACE</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true">☰</span> Menú</button>
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#nosotros">ENLACE</a></li><li><a href="#servicios">Soluciones</a></li><li><a href="#metodo">Metodología</a></li><li><a class="nav-cta" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">Atención humana · apoyo digital</span>
+          <h1>Soluciones jurídicas, contractuales y digitales para <span>avanzar.</span></h1>
+          <p class="hero-copy">ENLACE ayuda a personas, contratistas y empresas a organizar documentos, cumplir tareas y simplificar procesos. Combinamos acompañamiento cercano, herramientas digitales e inteligencia artificial con revisión humana.</p>
+          <div class="actions"><a class="button button-primary" href="#servicios">Explorar soluciones <span aria-hidden="true">→</span></a><a class="button button-quiet" href="#contacto"><svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12.04 2a9.83 9.83 0 0 0-8.46 14.85L2.3 22l5.28-1.24A9.84 9.84 0 1 0 12.04 2Zm0 17.9a8.02 8.02 0 0 1-4.09-1.12l-.29-.17-3.13.74.76-3.05-.19-.31a8.05 8.05 0 1 1 6.94 3.91Zm4.42-6.03c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.15 1.51.09.46-.07 1.43-.59 1.63-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>Escríbenos por WhatsApp</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="nosotros">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Qué hacemos</span><h2>Un punto de apoyo para tareas que requieren orden y continuidad.</h2><p>ENLACE es un proyecto empresarial digital que integra apoyo contractual y documental, servicios administrativos y herramientas de automatización. Conversamos sobre cada necesidad y definimos con claridad el alcance, las personas responsables y los pasos siguientes.</p></div>
+        <div class="value-grid">
+          <article class="value-card"><div class="icon-box" aria-hidden="true">◎</div><h3>Menos dispersión</h3><p>Reunimos información, fechas y pendientes para que personas y equipos sepan qué falta y dónde encontrarlo.</p></article>
+          <article class="value-card"><div class="icon-box" aria-hidden="true">↔</div><h3>Apoyo cercano</h3><p>Escuchamos el contexto y acordamos cómo acompañar el trabajo, con comunicación humana y directa.</p></article>
+          <article class="value-card"><div class="icon-box" aria-hidden="true">⌁</div><h3>Tecnología con criterio</h3><p>Usamos herramientas digitales e IA como apoyo; los procesos y documentos requieren revisión humana.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-soft" id="servicios">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Soluciones ENLACE</span><h2>Apoyo contractual, administrativo y digital en Colombia.</h2><p>Encuentra el tipo de apoyo según el reto que quieres resolver. El alcance, la disponibilidad y las condiciones se confirman antes de iniciar cada servicio.</p></div>
+        <div class="service-grid">
+          <article class="service-card" id="contratacion-estatal"><div class="icon-box" aria-hidden="true">▦</div><h3>Contratación estatal y apoyo a contratistas</h3><p>Para contratistas y equipos que necesitan ordenar compromisos, fechas y soportes durante la ejecución de un contrato.</p><ul><li>Elaboración y organización de informes de actividades</li><li>Matrices de obligaciones, productos, fechas y entregables</li><li>Organización de soportes contractuales</li><li>Apoyo documental para modificaciones, prórrogas, suspensiones y terminaciones</li><li>Organización y seguimiento de expedientes</li></ul><p class="audience"><strong>Ayuda a:</strong> ubicar pendientes y reunir soportes para tener la información lista para revisión y gestión.</p></article>
+          <article class="service-card" id="documentos-contractuales"><div class="icon-box" aria-hidden="true">▤</div><h3>Contratos y documentos jurídicos</h3><p>Para personas y empresas que requieren apoyo para preparar, ordenar o revisar formalmente documentos.</p><ul><li>Borradores de contratos civiles y comerciales</li><li>Organización y revisión formal de documentos contractuales</li><li>Comunicaciones, acuerdos y otros documentos jurídicos</li><li>Preparación documental de derechos de petición y solicitudes administrativas</li></ul><p class="audience"><strong>Ayuda a:</strong> estructurar documentos con información organizada y facilitar su revisión antes de usarlos.</p></article>
+          <article class="service-card" id="apoyo-juridico"><div class="icon-box" aria-hidden="true">§</div><h3>Apoyo jurídico y trámites</h3><p>Para quienes necesitan ordenar información y requisitos como parte de un trámite o una consulta.</p><ul><li>Información jurídica general en áreas y modalidades que se confirmen legalmente disponibles</li><li>Preparación documental para trámites administrativos</li><li>Investigación normativa y jurisprudencial como insumo de apoyo</li><li>Revisión de requisitos y organización de documentos para procedimientos</li></ul><p class="audience"><strong>Ayuda a:</strong> entender qué información reunir y preparar documentación para su revisión o presentación.</p></article>
+          <article class="service-card" id="servicios-administrativos"><div class="icon-box" aria-hidden="true">⌘</div><h3>Servicios administrativos y empresariales</h3><p>Para personas, contratistas y empresas que necesitan liberar tiempo y mantener sus procesos cotidianos organizados.</p><ul><li>Gestión documental y digitalización de procesos</li><li>Elaboración de informes, cartas, formatos y procedimientos</li><li>Organización de archivos e información</li><li>Apoyo administrativo remoto</li></ul><p class="audience"><strong>Ayuda a:</strong> reducir desorden operativo y encontrar con facilidad documentos y tareas importantes.</p></article>
+          <article class="service-card" id="automatizacion-ia"><div class="icon-box" aria-hidden="true">✳</div><h3>Automatización e inteligencia artificial</h3><p>Para equipos que quieren simplificar tareas repetitivas y ordenar la entrada y circulación de información.</p><ul><li>Generación asistida de documentos</li><li>Automatización de tareas repetitivas</li><li>Formularios inteligentes y flujos de información</li><li>Herramientas digitales para organizar procesos</li></ul><p class="audience"><strong>Ayuda a:</strong> ahorrar pasos manuales y dar estructura a tareas frecuentes, con revisión humana.</p></article>
+        </div>
+        <div class="note"><strong>Alcance jurídico:</strong> el apoyo documental, la información general y la investigación como insumo no equivalen por sí mismos a asesoría jurídica personalizada, representación ni actuación profesional. Esos servicios solo podrían ofrecerse tras confirmar la habilitación aplicable, quién los prestaría y el alcance permitido. ENLACE no afirma ser una firma jurídica ni contar con un equipo de abogados.</div>
+        <div class="note"><strong>Uso responsable de IA:</strong> la inteligencia artificial sirve como herramienta de apoyo y no sustituye la revisión humana. No incluyas información personal, confidencial o de un caso real en este sitio demostrativo.</div>
+      </div>
+    </section>
+    <section class="section" id="metodo">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Cómo trabajamos</span><h2>Atención humana, alcance claro y herramientas adecuadas.</h2><p>Organizamos cada encargo alrededor de su necesidad concreta, cuidando que el tipo de apoyo ofrecido sea apropiado para su alcance.</p></div>
+        <div class="method-grid">
+          <article class="method-card"><h3>Escuchamos</h3><p>Entendemos el reto, las personas involucradas y la información disponible.</p></article>
+          <article class="method-card"><h3>Delimitamos</h3><p>Acordamos prioridades, entregables, responsables y límites del servicio.</p></article>
+          <article class="method-card"><h3>Organizamos</h3><p>Preparamos documentos o flujos de trabajo con herramientas apropiadas.</p></article>
+          <article class="method-card"><h3>Revisamos</h3><p>Verificamos el avance con criterio humano y ajustamos según lo acordado.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-soft" id="contacto">
+      <div class="container contact-layout">
+        <div class="contact-copy"><span class="eyebrow">Contacto</span><h2>Cuéntanos qué proceso quieres hacer más claro.</h2><p>Completa el formulario para describir tu solicitud. Antes de habilitar envíos reales, ENLACE debe publicar su política de tratamiento de datos y configurar el servicio de recepción.</p></div>
+        <form class="demo-form" id="contact-form" aria-label="Formulario de contacto" novalidate>
+          <h3>Conversemos sobre tu necesidad</h3><p class="demo-caption">Los campos marcados son obligatorios.</p>
+          <div class="form-field"><label for="contact-name">Nombre</label><input id="contact-name" name="nombre" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="form-field"><label for="contact-email">Correo electrónico</label><input id="contact-email" name="correoElectronico" type="email" autocomplete="email" maxlength="254" required></div>
+          <div class="form-field"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" pattern="[+0-9() .-]{7,30}" title="Escribe un número válido con indicativo de país, si aplica." maxlength="30" placeholder="Incluye el indicativo de país" required></div>
+          <div class="form-field"><label for="contact-service">Servicio solicitado</label><select id="contact-service" name="servicioSolicitado" required><option value="" selected disabled>Selecciona una línea de servicio</option><option value="Contratación estatal y apoyo a contratistas">Contratación estatal y apoyo a contratistas</option><option value="Contratos y documentos jurídicos">Contratos y documentos jurídicos</option><option value="Apoyo jurídico y trámites">Apoyo jurídico y trámites</option><option value="Servicios administrativos y empresariales">Servicios administrativos y empresariales</option><option value="Automatización e inteligencia artificial">Automatización e inteligencia artificial</option></select></div>
+          <div class="form-field"><label for="contact-description">Descripción breve</label><textarea id="contact-description" name="descripcionBreve" maxlength="500" placeholder="Describe brevemente qué apoyo buscas (máximo 500 caracteres)" required></textarea></div>
+          <div class="privacy-disclosure" aria-label="Información y autorización para el tratamiento de datos personales">
+            <p><strong>Responsable:</strong> Sebastián Lozano, persona natural que utiliza el nombre comercial ENLACE.</p>
+            <p><strong>Correo para consultas y reclamos:</strong> <a href="mailto:selozanos.2313@gmail.com">selozanos.2313@gmail.com</a>.</p>
+            <p>Autorizo de manera previa, expresa e informada a Sebastián Lozano, quien desarrolla sus actividades bajo el nombre comercial ENLACE, para tratar los datos personales que proporciono en este formulario con las siguientes finalidades: recibir y gestionar mi solicitud, contactarme por los medios suministrados, evaluar mi necesidad, enviarme información o una propuesta relacionada con el servicio solicitado y realizar el seguimiento correspondiente.</p>
+            <p>Declaro que conozco la Política de Tratamiento de Datos Personales de ENLACE y que puedo consultar allí las finalidades del tratamiento, mis derechos como titular y el procedimiento para presentar consultas o reclamos.</p>
+            <p>Puedo ejercer mis derechos de acceso, actualización, rectificación, supresión y revocatoria de la autorización, cuando proceda legalmente, escribiendo a <a href="mailto:selozanos.2313@gmail.com">selozanos.2313@gmail.com</a>.</p>
+            <p>La autorización no implica que mis datos puedan utilizarse para finalidades distintas de las informadas ni que se encuentre autorizado el envío de publicidad no relacionada con mi solicitud.</p>
+            <p><a id="privacy-policy-link" href="#" hidden>Leer la Política de Tratamiento de Datos Personales de ENLACE</a><span id="privacy-policy-pending">La política aún no está publicada o enlazada. El formulario no habilitará el envío hasta que se configure su URL y versión.</span></p>
+          </div>
+          <div class="consent-row"><input id="privacy-consent" name="aceptaTratamientoDatos" type="checkbox" required disabled><label for="privacy-consent">He leído la Política de Tratamiento de Datos Personales y autorizo el tratamiento de mis datos conforme a las finalidades informadas</label></div>
+          <button class="button button-primary demo-submit" id="contact-submit" type="submit">Enviar solicitud</button>
+          <p class="demo-privacy">No envíes información sensible, financiera ni detalles confidenciales de un caso. La política debe estar disponible para lectura antes de aceptar y enviar datos personales.</p>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span class="footer-brand">ENLACE</span><p>Soluciones contractuales, administrativas y digitales.</p><p>© <span id="year">2026</span> ENLACE</p></div></footer>
+  <script>
+    // Configura aquí la URL publicada del despliegue web de Google Apps Script.
+    // Mientras esté vacía, el formulario no enviará datos.
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxURbjiJS3PCpdHLf5tsynkNzi3Nm64_phmBf5Oq5aWq6gG7VGfoBFnJUR13H-D710ueA/exec';
+    // Política pública vigente identificada en el documento como versión 1.0.
+    const PRIVACY_POLICY_URL = 'https://docs.google.com/document/d/e/2PACX-1vRt2FZR19ep15XqGwUrsmxhxC0tdlPVT37IQYjaIbzqlY3r3fRLAP0Lmljdp68MAlwOX4z9wae53JDp/pub';
+    // Configura solo el identificador exacto de la versión aprobada publicada.
+    const PRIVACY_POLICY_VERSION = '1.0';
+
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#menu-principal');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menu.classList.toggle('is-open', !isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('is-open');
+      });
+    });
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    const contactForm = document.querySelector('#contact-form');
+    const submitButton = document.querySelector('#contact-submit');
+    const formMessage = document.querySelector('#form-message');
+    const privacyConsent = document.querySelector('#privacy-consent');
+    const privacyPolicyLink = document.querySelector('#privacy-policy-link');
+    const privacyPolicyPending = document.querySelector('#privacy-policy-pending');
+
+    if (PRIVACY_POLICY_URL) {
+      privacyPolicyLink.href = PRIVACY_POLICY_URL;
+      privacyPolicyLink.hidden = false;
+      if (PRIVACY_POLICY_VERSION) {
+        privacyPolicyPending.hidden = true;
+        privacyConsent.disabled = false;
+      } else {
+        privacyPolicyPending.textContent = 'Falta configurar la versión aprobada que identifica la política publicada.';
+      }
+    }
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      formMessage.textContent = '';
+      formMessage.dataset.state = '';
+
+      for (const field of [contactForm.elements.nombre, contactForm.elements.correoElectronico, contactForm.elements.whatsapp, contactForm.elements.servicioSolicitado, contactForm.elements.descripcionBreve]) {
+        field.setCustomValidity(field.value.trim() ? '' : 'Completa este campo para continuar.');
+      }
+      if (!contactForm.reportValidity()) return;
+
+      if (!PRIVACY_POLICY_URL) {
+        formMessage.dataset.state = 'error';
+        formMessage.textContent = 'No se puede enviar: falta publicar la Política de Tratamiento de Datos Personales y configurar PRIVACY_POLICY_URL.';
+        return;
+      }
+
+      if (!PRIVACY_POLICY_VERSION) {
+        formMessage.dataset.state = 'error';
+        formMessage.textContent = 'No se puede enviar: falta configurar la versión publicada de la política.';
+        return;
+      }
+
+      if (!privacyConsent.checked) {
+        formMessage.dataset.state = 'error';
+        formMessage.textContent = 'Debes leer la política y marcar la casilla de autorización para continuar.';
+        return;
+      }
+
+      if (!GOOGLE_APPS_SCRIPT_URL) {
+        formMessage.dataset.state = 'error';
+        formMessage.textContent = 'El formulario aún no está conectado. Falta configurar la URL publicada de Google Apps Script.';
+        return;
+      }
+
+      const payload = {
+        nombre: contactForm.elements.nombre.value.trim(),
+        correo: contactForm.elements.correoElectronico.value.trim(),
+        whatsapp: contactForm.elements.whatsapp.value.trim(),
+        servicio: contactForm.elements.servicioSolicitado.value,
+        descripcion: contactForm.elements.descripcionBreve.value.trim(),
+        aceptaTratamientoDatos: true,
+        fechaHoraAceptacion: new Date().toISOString(),
+        versionPoliticaAceptada: PRIVACY_POLICY_VERSION
+      };
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando…';
+      formMessage.textContent = 'Procesando la solicitud…';
+
+      try {
+        // El cuerpo es JSON. text/plain evita el preflight de application/json,
+        // pero el navegador aún puede bloquear la respuesta por CORS.
+        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'omit',
+          redirect: 'follow',
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error('El servicio respondió con un error HTTP.');
+
+        const result = await response.json();
+        const accepted = result && (result.success === true || result.ok === true || result.status === 'success');
+        if (!accepted) throw new Error('El servicio no confirmó el registro.');
+
+        formMessage.dataset.state = 'success';
+        formMessage.textContent = 'Recibimos tu solicitud. Gracias por escribir a ENLACE.';
+        contactForm.reset();
+      } catch (error) {
+        formMessage.dataset.state = 'error';
+        formMessage.textContent = 'No pudimos confirmar el registro. Puede ser un problema de conexión o CORS; revisa la hoja antes de volver a enviar para evitar duplicados.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar solicitud';
+      }
+    });
+  </script>
+</body>
+</html>
